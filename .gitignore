@@ -2,4 +2,4 @@
 .vscode
 
 #excecution file
-test.exe
+./Level1/test.exe
