@@ -7,7 +7,7 @@ using namespace std;
 int solution(int n)
 {
     int start1 = 1, count = 1;
-    while (start1 < n)
+    while (start1 <= n / 2)
     {
         int start2 = start1;
         int sum = 0;
