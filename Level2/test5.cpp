@@ -14,9 +14,9 @@ vector<int> solution(string s)
         rep++;
         int length = s.size() - count(s.begin(), s.end(), '0');
         string decimal = "";
-        while (length != 0)
+        while (length > 0)
         {
-            decimal.push_back(length % 2);
+            decimal.push_back((length % 2) + '0');
             length /= 2;
         }
         reverse(decimal.begin(), decimal.end());
@@ -28,7 +28,7 @@ vector<int> solution(string s)
 
 int main()
 {
-    vector<int> a = solution("110010101001");
+    vector<int> a = solution("1111111");
     for (const auto &it : a)
     {
         cout << it << " ";
