@@ -25,7 +25,7 @@ vector<int> solution(int n, long long left, long long right)
 
 int main()
 {
-    vector<int> answer = solution(3, 2, 5);
+    vector<int> answer = solution(4, 7, 14);
     for (const auto &it : answer)
     {
         cout << it << " ";
