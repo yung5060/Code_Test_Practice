@@ -5,7 +5,7 @@ public class ACMhotel {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
         for (int i = 0; i < N; i++) {
-            int A = sc.nextInt(), B = sc.nextInt(), C = sc.nextInt();
+            int A = sc.nextInt(), C = sc.nextInt();
             String a, b;
             if (C % A == 0) {
                 a = String.valueOf(A);
