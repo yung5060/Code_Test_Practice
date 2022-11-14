@@ -1,21 +1,18 @@
 #include <iostream>
 
-void solution(int i, int j, int N)
+char solution(int a, int b)
 {
-    if ((i / N) % 3 == 1 && (j / N) % 3 == 1)
+    if (a % 3 == 1 && b % 3 == 1)
     {
-        std::cout << ' ';
+        return ' ';
+    }
+    else if (a < 3 && b < 3)
+    {
+        return '*';
     }
     else
     {
-        if (N / 3 == 0)
-        {
-            std::cout << '*';
-        }
-        else
-        {
-            solution(i, j, N / 3);
-        }
+        return solution(a / 3, b / 3);
     }
 }
 
@@ -27,7 +24,7 @@ int main()
     {
         for (int j = 0; j < N; j++)
         {
-            solution(i, j, N);
+            std::cout << solution(i, j);
         }
         std::cout << std::endl;
     }
