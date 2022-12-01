@@ -20,6 +20,25 @@ int main()
 	for (int i = 0; i < M; i++)
 	{
 		std::cin >> num;
-		std::cout << std::binary_search(v.begin(), v.end(), num) << " ";
+		// std::cout << std::binary_search(v.begin(), v.end(), num) << " ";
+		int left = 0, right = N - 1, mid, check = 0;
+		while (left <= right)
+		{
+			mid = (left + right) / 2;
+			if (v[mid] == num)
+			{
+				check = 1;
+				break;
+			}
+			else if (v[mid] > num)
+			{
+				right = mid - 1;
+			}
+			else
+			{
+				left = mid + 1;
+			}
+		}
+		std::cout << check << " ";
 	}
 }
