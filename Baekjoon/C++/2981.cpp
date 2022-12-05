@@ -1,18 +1,14 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
+#include <algorithm>
 
-bool check(const std::vector<int> &num_list, int n)
+int GCD(int a, int b)
 {
-    int remainder = num_list.front() % n;
-    for (const auto &it : num_list)
+    if (a % b == 0)
     {
-        if (remainder != it % n)
-        {
-            return false;
-        }
+        return b;
     }
-    return true;
+    return GCD(b, a % b);
 }
 
 int main()
@@ -20,21 +16,34 @@ int main()
     std::ios_base::sync_with_stdio(false);
     std::cin.tie(nullptr);
 
-    int N, tmp, n = 2, m = 1000000000;
-    std::vector<int> nums;
+    int N, num;
     std::cin >> N;
+    std::vector<int> nums;
     for (int i = 0; i < N; i++)
     {
-        std::cin >> tmp;
-        m = std::min(m, tmp);
-        nums.push_back(tmp);
+        std::cin >> num;
+        nums.push_back(num);
     }
-    while (n < m)
+    std::sort(nums.begin(), nums.end());
+    int gcd = nums[1] - nums[0];
+    for (int i = 2; i < N; i++)
     {
-        if (check(nums, n))
+        gcd = GCD(gcd, nums[i] - nums[i - 1]);
+    }
+    std::vector<int> result;
+    for (int i = 2; i * i <= gcd; i++)
+    {
+        if (gcd % i == 0)
         {
-            std::cout << n << ' ';
+            result.push_back(i);
+            result.push_back(gcd / i);
         }
-        n++;
+    }
+    result.push_back(gcd);
+    std::sort(result.begin(), result.end());
+    result.erase(std::unique(result.begin(), result.end()), result.end());
+    for (const auto &it : result)
+    {
+        std::cout << it << ' ';
     }
 }
