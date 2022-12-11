@@ -34,6 +34,6 @@ int solution(string my_string)
 
 int main()
 {
-    cout << solution("3 + 4");
+    cout << solution("10 + 100 - 100 - 10 + 34 - 12 + 3");
     cin.get();
 }
