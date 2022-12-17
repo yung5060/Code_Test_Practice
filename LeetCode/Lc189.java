@@ -3,6 +3,7 @@ import java.util.stream.IntStream;
 
 public class Lc189 {
     public void rotate(int[] nums, int k) {
+        k = k % nums.length;
         k = nums.length - k;
         int[] arr1 = Arrays.copyOfRange(nums, 0, k);
         int[] arr2 = Arrays.copyOfRange(nums, k, nums.length);
