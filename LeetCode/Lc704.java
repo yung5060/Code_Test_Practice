@@ -19,5 +19,6 @@ public class Lc704 {
         int[] nums = { -1, 0, 3, 5, 9, 1 };
         Lc704 tmp = new Lc704();
         System.out.println(tmp.search(nums, 2));
+		System.out.println(tmp.search(nums, 9));
     }
 }
